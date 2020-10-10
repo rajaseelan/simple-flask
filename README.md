@@ -9,4 +9,4 @@ Returns current time on server in epoch.
 
 ## How to launch
 
-`docker run -e SIMPLE_FLASK_PORT=8080 simple-flask:v0.0.1`
+`docker run -d -e SIMPLE_FLASK_PORT=8080 -p 8080:8080 simple-flask:v0.0.1`
