@@ -13,8 +13,14 @@ def hello_world():
 def json_response():
     response = {
         "hostname": hostname(),
-        "time": current_time()
+        "time": current_time(),
+        "port": listening_port()
     }
+
+    message = supplied_message()
+    print("message: ",message)
+    if message != None:
+        response["message"] = message
 
     return json.dumps(response, sort_keys=True, indent=4)
 
@@ -31,3 +37,9 @@ def hostname():
 
 def current_time():
     return str(time.time())
+
+def supplied_message():
+    return os.getenv("SIMPLE_FLASK_MESSAGE")
+
+def listening_port():
+    return os.getenv("SIMPLE_FLASK_PORT")
